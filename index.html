@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>MD5</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script type="text/javascript" src="js/md5.js"></script>
+	</head>
+
+	<body>
+
+		<div class="center">
+			<h1>MD5 Converter</h1><br>
+			<form action="index.html" method="GET">
+			<label>MD5 : </label><input type="text" name="md5"/>
+			<input type="submit" value="GET"/>
+			</form><br>
+			<p id="result"></p>
+		</div>
+	
+		<script type="text/javascript">
+			var GET = [];
+			url = decodeURI(document.location.search);
+			if(url.indexOf('?') != -1) {
+				url = url.split('?'); url = url[1]; url = url.split('='); GET[url[0]] = url[1];
+				if (GET['md5']) document.getElementById('result').innerHTML = MD5(GET['md5']);
+				else document.getElementById('result').innerHTML = "Значение не задано...";
+			}
+		</script>
+	
+	</body>
+</html>
